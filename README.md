@@ -13,25 +13,25 @@ In this article we are going to learn how to get a perfect hexagon grid using Ja
 
 First of all, we introduce a regular hexagon that is composed of six equal sides.
 
-<div style="text-align:center"><img src="hex.svg" alt="hexagon" width="150"/></div>
+<div style="text-align:center"><img src="https://eperezcosano.github.io/f6c3552346a2bee79f9d4f616143a811/hex.svg" alt="hexagon" width="150"/></div>
 
 Any regular polygon can be inscribed within a circumference of radius **r**
 
-<div style="text-align:center"><img src="circumference.svg" alt="circumference" width="250"/></div>
+<div style="text-align:center"><img src="https://eperezcosano.github.io/fb798448f4bb72e11b6f701141e6cf44/circumference.svg" alt="circumference" width="250"/></div>
 
 So each of its vertex intersects with the circumference. Starting that the center of the circumference is the point of origin _(0,0)_ we can easily calculate the most-right and most-left vertex are _(**r**,&nbsp;0)_ and _(-**r**,0)_ respectively, however, what are the positions of the rest of the points? Here is where trigonometry comes into play.
 
 Given any equilateral triangle, the following trigonometric functions applies:
 
-<div style="text-align:center"><img src="trigo.svg" alt="trigonometry" width="250"/></div>
+<div style="text-align:center"><img src="https://eperezcosano.github.io/e1a78d00b463587772f7a422cd9cc181/trigo.svg" alt="trigonometry" width="250"/></div>
 
 It is very useful to know any side of the triangle if you know one of its other sides and the angle it forms. For this case, the angle formed by each vertex with the horizontal axis is equal by dividing the circumference by the number of sides (360º&nbsp;/&nbsp;6=&nbsp;**60º**) and we also know that the hypotenuse is equal to the radius of the circumference **r**. From the first equation we can say that a&nbsp;=&nbsp;c&nbsp;*&nbsp;sinα and b&nbsp;=&nbsp;c&nbsp;*cosα. In resume, putting altogether the second vertex coordinates are _(**rcos60º**,**rsin60º**)_.
 
-![](trigo2.svg)
+![](https://eperezcosano.github.io/e54179cfce3b7e01ada66b0ee7d3beb4/trigo2.svg)
 
 Then the rest comes as a multiple of 60º as 120º, 180º, 240º, 300º and 360º which is equal to 0º again. Notice that the most-right and most-left vertex coincide what we have expected due to sin0º = 0, cos0º = 1, cos180º = -1 and sin0º = 0. These are the resulting vertex:
 
-![](trigo3.svg)
+![](https://eperezcosano.github.io/8124cf09214dbaf0e8a7b3bacaab141b/trigo3.svg)
 
 ## First Step: An Hexagon
 
@@ -75,13 +75,15 @@ function drawHexagon(x, y) {
 }
 ```
 Before testing it, notice that the point _(0,0)_ in our canvas starts on the upper left corner, so in order to fit the drawing we need a minimum offset of **r**.
-![](borders.svg)
+![](https://eperezcosano.github.io/e43e70506381d06f0d758f5d1ed8fd03/borders.svg)
 
 ### Result
-<iframe height="265" style="width: 100%;" scrolling="no" title="An Hex" src="https://codepen.io/eperezcosano/embed/eYJXzXK?height=265&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/eperezcosano/pen/eYJXzXK'>An Hex</a> by Ethan
-  (<a href='https://codepen.io/eperezcosano'>@eperezcosano</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="eperezcosano" data-slug-hash="eYJXzXK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="An Hex">
+  <span>See the Pen <a href="https://codepen.io/eperezcosano/pen/eYJXzXK">
+  An Hex</a> by Ethan (<a href="https://codepen.io/eperezcosano">@eperezcosano</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Second Step: The Row
 
