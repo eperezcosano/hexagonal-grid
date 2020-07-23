@@ -78,7 +78,7 @@ Before testing it, notice that the point _(0,0)_ in our canvas starts on the upp
 ![](https://eperezcosano.github.io/e43e70506381d06f0d758f5d1ed8fd03/borders.svg)
 
 ### Result
-![](https://codepen.io/eperezcosano/pen/eYJXzXK)
+https://codepen.io/eperezcosano/pen/eYJXzXK
 
 ## Second Step: The Row
 
@@ -113,7 +113,7 @@ drawHexagon(x, y);
 ```
 
 ### Result
-![](https://codepen.io/eperezcosano/pen/xxZBEwN)
+https://codepen.io/eperezcosano/pen/xxZBEwN
 
 We need to find the pattern that will allow to made this scalable.
 On one hand, _x_ could be written as a increment of:
@@ -156,7 +156,7 @@ function drawGrid(width, height) {
 Notice we want that the next hexagon we are going to draw fits inside the canvas. Let's test it out.
 
 ### Result
-![](https://codepen.io/eperezcosano/pen/XWXGKwP)
+https://codepen.io/eperezcosano/pen/XWXGKwP
 
 ## Third Step: The Grid
 
@@ -178,4 +178,4 @@ function drawGrid(width, height) {
 Let's put altogether and try it out!
 
 ### Result
-![](https://codepen.io/eperezcosano/pen/vYLPXYO)
+https://codepen.io/eperezcosano/pen/vYLPXYO
