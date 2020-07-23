@@ -25,7 +25,7 @@ Given any equilateral triangle, the following trigonometric functions applies:
 
 <div style="text-align:center"><img src="https://eperezcosano.github.io/e1a78d00b463587772f7a422cd9cc181/trigo.svg" alt="trigonometry" width="250"/></div>
 
-It is very useful to know any side of the triangle if you know one of its other sides and the angle it forms. For this case, the angle formed by each vertex with the horizontal axis is equal by dividing the circumference by the number of sides (360º&nbsp;/&nbsp;6=&nbsp;**60º**) and we also know that the hypotenuse is equal to the radius of the circumference **r**. From the first equation we can say that a&nbsp;=&nbsp;c&nbsp;*&nbsp;sinα and b&nbsp;=&nbsp;c&nbsp;*cosα. In resume, putting altogether the second vertex coordinates are _(**rcos60º**,**rsin60º**)_.
+It is very useful to know any side of the triangle if you know one of its other sides and the angle it forms. For this case, the angle formed by each vertex with the horizontal axis is equal by dividing the circumference by the number of sides (360º&nbsp;/&nbsp;6&nbsp;=&nbsp;**60º**) and we also know that the hypotenuse is equal to the radius of the circumference **r**. From the first equation we can say that a&nbsp;=&nbsp;c&nbsp;*&nbsp;sinα and b&nbsp;=&nbsp;c&nbsp;*cosα. In resume, putting altogether the second vertex coordinates are _(**rcos60º**,**rsin60º**)_.
 
 ![](https://eperezcosano.github.io/e54179cfce3b7e01ada66b0ee7d3beb4/trigo2.svg)
 
@@ -78,18 +78,13 @@ Before testing it, notice that the point _(0,0)_ in our canvas starts on the upp
 ![](https://eperezcosano.github.io/e43e70506381d06f0d758f5d1ed8fd03/borders.svg)
 
 ### Result
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="eperezcosano" data-slug-hash="eYJXzXK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="An Hex">
-  <span>See the Pen <a href="https://codepen.io/eperezcosano/pen/eYJXzXK">
-  An Hex</a> by Ethan (<a href="https://codepen.io/eperezcosano">@eperezcosano</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+![](https://codepen.io/eperezcosano/pen/eYJXzXK)
 
 ## Second Step: The Row
 
 Perfect! The next step is to draw a raw of hexagons, like that:
 
-![](row.svg)
+![](https://eperezcosano.github.io/7edc8cca90ccd1442481751622ce7a78/row.svg)
 
 Essentially is important to know where is the next center going to be located to fit perfectly one to each other. First, notice how much horizontally is placed the purple arrow. It is a distance of the radius **r** plus a segment we already know as **rcos60º**. And same as vertically, a segment of **rsin60º** downwards. The procedure is always adding the same amount horizontally and alternating vertically.
 
@@ -118,10 +113,7 @@ drawHexagon(x, y);
 ```
 
 ### Result
-<iframe height="265" style="width: 100%;" scrolling="no" title="Raw Row" src="https://codepen.io/eperezcosano/embed/xxZBEwN?height=265&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/eperezcosano/pen/xxZBEwN'>Raw Row</a> by Ethan
-  (<a href='https://codepen.io/eperezcosano'>@eperezcosano</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+![](https://codepen.io/eperezcosano/pen/xxZBEwN)
 
 We need to find the pattern that will allow to made this scalable.
 On one hand, _x_ could be written as a increment of:
@@ -164,16 +156,13 @@ function drawGrid(width, height) {
 Notice we want that the next hexagon we are going to draw fits inside the canvas. Let's test it out.
 
 ### Result
-<iframe height="265" style="width: 100%;" scrolling="no" title="A row" src="https://codepen.io/eperezcosano/embed/XWXGKwP?height=265&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/eperezcosano/pen/XWXGKwP'>A row</a> by Ethan
-  (<a href='https://codepen.io/eperezcosano'>@eperezcosano</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+![](https://codepen.io/eperezcosano/pen/XWXGKwP)
 
 ## Third Step: The Grid
 
 That is it! We are just one step away from success. All we need is to repeat the same procedure but in the row below repeatedly. But, how much lower it is from the original row? Let's find it out:
 
-![](column.svg)
+![](https://eperezcosano.github.io/c92173d5dbbc6b8061598818d253339e/column.svg)
 
 This would be a final scheme of our grid, showing the first four centers of each row to get a good view what is going on. From the center _(0,0)_ we can see that the blue arrow takes a distance of twice the length of the hexagon height that sums up to **2rsin60º**. The rest is going to be the same taking into account this offset. We modify our function to draw many lines as the last hexagon fits in the canvas height.
 
@@ -189,8 +178,4 @@ function drawGrid(width, height) {
 Let's put altogether and try it out!
 
 ### Result
-
-<iframe height="628" style="width: 100%;" scrolling="no" title="A Grid" src="https://codepen.io/eperezcosano/embed/vYLPXYO?height=628&theme-id=light&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/eperezcosano/pen/vYLPXYO'>A Grid</a> by Ethan
-  (<a href='https://codepen.io/eperezcosano'>@eperezcosano</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+![](https://codepen.io/eperezcosano/pen/vYLPXYO)
