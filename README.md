@@ -4,9 +4,9 @@ In this article we are going to learn how to get a perfect hexagon grid using Ja
 
 ## Table of Contents
 1. [The Basics](#the-basics)
-2. [First Step: An Hexagon](#first-step-an-hexagon)
-3. [Second Step: The Row](#second-step-the-row)
-4. [Third Step: The Grid](#third-step-the-grid)
+2. [A Hexagon](#a-hexagon)
+3. [A Row](#a-row)
+4. [The Grid](#the-grid)
 
 
 ## The Basics
@@ -19,23 +19,23 @@ Any regular polygon can be inscribed within a circumference of radius **r**
 
 <div style="text-align:center"><img src="https://eperezcosano.github.io/fb798448f4bb72e11b6f701141e6cf44/circumference.svg" alt="circumference" width="250"/></div>
 
-So each of its vertex intersects with the circumference. Starting that the center of the circumference is the point of origin _(0,0)_ we can easily calculate the most-right and most-left vertex are _(**r**,&nbsp;0)_ and _(-**r**,0)_ respectively, however, what are the positions of the rest of the points? Here is where trigonometry comes into play.
+So each of its vertexes intersects with the circumference. Drawing from the premise that the center of the circumference is the point of origin _(0,0)_ we can easily calculate the most-right and most-left vertex are _(**r**,&nbsp;0)_ and _(-**r**,0)_ respectively, however, what are the positions of the rest of the points? Here is where trigonometry comes into play.
 
-Given any equilateral triangle, the following trigonometric functions applies:
+Given any right triangle, the following trigonometric functions applies:
 
 <div style="text-align:center"><img src="https://eperezcosano.github.io/e1a78d00b463587772f7a422cd9cc181/trigo.svg" alt="trigonometry" width="250"/></div>
 
-It is very useful to know any side of the triangle if you know one of its other sides and the angle it forms. For this case, the angle formed by each vertex with the horizontal axis is equal by dividing the circumference by the number of sides (360º&nbsp;/&nbsp;6&nbsp;=&nbsp;**60º**) and we also know that the hypotenuse is equal to the radius of the circumference **r**. From the first equation we can say that a&nbsp;=&nbsp;c&nbsp;*&nbsp;sinα and b&nbsp;=&nbsp;c&nbsp;*cosα. In resume, putting altogether the second vertex coordinates are _(**rcos60º**,**rsin60º**)_.
+It is very useful to know any side of the triangle if you know one of its other sides and the angle it forms. For this case, the angle formed by each vertex with the horizontal axis is equal by dividing the circumference by the number of sides (360º&nbsp;/&nbsp;6&nbsp;=&nbsp;**60º**) and we also know that the hypotenuse is equal to the radius of the circumference **r**. From the first equation we can say that a&nbsp;=&nbsp;c&nbsp;*&nbsp;sinα and b&nbsp;=&nbsp;c&nbsp;*cosα. In summary, putting altogether the second vertex coordinates are _(**rcos60º**,**rsin60º**)_.
 
 ![](https://eperezcosano.github.io/e54179cfce3b7e01ada66b0ee7d3beb4/trigo2.svg)
 
-Then the rest comes as a multiple of 60º as 120º, 180º, 240º, 300º and 360º which is equal to 0º again. Notice that the most-right and most-left vertex coincide what we have expected due to sin0º = 0, cos0º = 1, cos180º = -1 and sin0º = 0. These are the resulting vertex:
+Then the rest comes as a multiple of 60º as 120º, 180º, 240º, 300º and 360º which is equal to 0º again. Notice that the most-right and most-left vertex coincide with what we have expected due to sin0º = 0, cos0º = 1, cos180º = -1 and sin0º = 0. These are the resulting vertexes:
 
 ![](https://eperezcosano.github.io/8124cf09214dbaf0e8a7b3bacaab141b/trigo3.svg)
 
-## First Step: An Hexagon
+## A Hexagon
 
-As this point we can start a new project to put in practice all we have seen. In a **index.html** file we set the minimum required fields for an HTML canvas:
+As this point we can start a new project to put in practice all we have seen. In an **index.html** file we set the minimum required fields for a HTML canvas:
 
 ```html
 <!DOCTYPE HTML>
@@ -80,13 +80,13 @@ Before testing it, notice that the point _(0,0)_ in our canvas starts on the upp
 ### Result
 https://codepen.io/eperezcosano/pen/eYJXzXK
 
-## Second Step: The Row
+## A Row
 
-Perfect! The next step is to draw a raw of hexagons, like that:
+Perfect! The next step is to draw a row of hexagons, like that:
 
 ![](https://eperezcosano.github.io/7edc8cca90ccd1442481751622ce7a78/row.svg)
 
-Essentially is important to know where is the next center going to be located to fit perfectly one to each other. First, notice how much horizontally is placed the purple arrow. It is a distance of the radius **r** plus a segment we already know as **rcos60º**. And same as vertically, a segment of **rsin60º** downwards. The procedure is always adding the same amount horizontally and alternating vertically.
+Essentially it is important to know where the next center is going to be located to fit perfectly with one another. First, notice how much horizontally is placed the purple arrow. It is a distance of the radius **r** plus a segment we already know as **rcos60º**. And same as vertically, a segment of **rsin60º** downwards. The procedure is always adding the same amount horizontally and alternating vertically.
 
 The code that allows to draw the four hexagons showed before is:
 
@@ -116,7 +116,7 @@ drawHexagon(x, y);
 https://codepen.io/eperezcosano/pen/xxZBEwN
 
 We need to find the pattern that will allow to made this scalable.
-On one hand, _x_ could be written as a increment of:
+On the one hand, _x_ could be written as a increment of:
 ```javascript
 x = x + r + r * Math.cos(a);
 ```
@@ -124,18 +124,18 @@ That shortened is expressed as:
 ```javascript
   x += r * (1 + Math.cos(a));
 ```
-On the other hand, _y_ is altering by adding or subtracting either is an even or an odd position:
+On the other hand, _y_ is altered between adding or subtracting whether it is an even or odd position:
 ```javascript
 y = y + r * Math.sin(a); // Even position
 y = y - r * Math.sin(a); // Odd position
 ```
 How it could be written for a general case?
-Let's assign a new variable _j_ that increases just as it does the position we are in. If we use this mathematical trick, we can do like an if-statement for alternating either is an even or an odd number:
+Let's assign a new variable _j_ that increases just as it does the position we are in. If we use this mathematical trick, we can do like an if-statement for alternating whether is an even or an odd number:
 ```
 (-1) ** j = -1 when j is odd
 (-1) ** j = 1 when j is even
 ```
-That is exactly what we are looking for! Let's wrap in altogether, and _y_ is expressed for every iteration as:
+That is exactly what we were looking for! Let's wrap in altogether, and _y_ is expressed for every iteration as:
 ```javascript
 j++;
 y = y + (-1) ** j * r * Math.sin(a);
@@ -144,7 +144,7 @@ That shortened is expressed as:
 ```javascript
 y += (-1) ** j++ * r * Math.sin(a);
 ```
-Finally we arrived at the solution how to draw many hexagons in a row as we want. We define a function named _drawGrid(width,height)_ that prints what we just explained up to this point:
+Finally we arrive to the solution on how to draw many hexagons in a row as we initially intended. We define a function named _drawGrid(width,height)_ that prints what we have just explained up to this point:
 ```javascript
 function drawGrid(width, height) {
   let y = r;
@@ -153,18 +153,18 @@ function drawGrid(width, height) {
   }
 }
 ```
-Notice we want that the next hexagon we are going to draw fits inside the canvas. Let's test it out.
+Notice whether the subsequent hexagon, in every iteration, that we are going to draw fits inside the canvas.
 
 ### Result
 https://codepen.io/eperezcosano/pen/XWXGKwP
 
 ## Third Step: The Grid
 
-That is it! We are just one step away from success. All we need is to repeat the same procedure but in the row below repeatedly. But, how much lower it is from the original row? Let's find it out:
+That is it! We are just one step away from success. All we need is to repeat the same procedure but in the row below repeatedly. But, how much lower is it from the original row? Let's find it out:
 
 ![](https://eperezcosano.github.io/c92173d5dbbc6b8061598818d253339e/column.svg)
 
-This would be a final scheme of our grid, showing the first four centers of each row to get a good view what is going on. From the center _(0,0)_ we can see that the blue arrow takes a distance of twice the length of the hexagon height that sums up to **2rsin60º**. The rest is going to be the same taking into account this offset. We modify our function to draw many lines as the last hexagon fits in the canvas height.
+This would be the final scheme of our grid, showing the first four centers of each row to get a good view on what is going on. From the center _(0,0)_ we can see that the blue arrow takes a distance of twice the length of the hexagon height that sums up to **2rsin60º**. The rest is going to be the same taking into account this offset. We modify our function to draw many lines as the last hexagon fits in the canvas height.
 
 ```javascript
 function drawGrid(width, height) {
