@@ -158,7 +158,7 @@ Notice whether the subsequent hexagon, in every iteration, that we are going to 
 ### Result
 https://codepen.io/eperezcosano/pen/XWXGKwP
 
-## Third Step: The Grid
+## The Grid
 
 That is it! We are just one step away from success. All we need is to repeat the same procedure but in the row below repeatedly. But, how much lower is it from the original row? Let's find it out:
 
