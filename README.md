@@ -168,8 +168,8 @@ This would be the final scheme of our grid, showing the first four centers of ea
 
 ```javascript
 function drawGrid(width, height) {
-  for (let y = r; y + r * Math.sin(a) < height; y += r * Math.sin(a)) {
-    for (let x = r, j = 0; x + r * (1 + Math.cos(a)) < width; x += r * (1 + Math.cos(a)), y += (-1) ** j++ * r * Math.sin(a)) {
+  for (let y = r, j = 0; y + r * Math.sin(a) < height; y += 2 ** ((j + 1) % 2) * r * Math.sin(a), j = 0) {
+    for (let x = r; x + r * (1 + Math.cos(a)) < width; x += r * (1 + Math.cos(a)), y += (-1) ** j++ * r * Math.sin(a)) {
       drawHexagon(x, y);
     }
   }
