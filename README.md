@@ -164,7 +164,7 @@ That is it! We are just one step away from success. All we need is to repeat the
 
 ![](https://eperezcosano.github.io/c92173d5dbbc6b8061598818d253339e/column.svg)
 
-This would be the final scheme of our grid, showing the first four centers of each row to get a good view on what is going on. From the center _(0,0)_ we can see that the blue arrow takes a distance of twice the length of the hexagon height that sums up to **2rsin60º**. The rest is going to be the same taking into account this offset. We modify our function to draw many lines as the last hexagon fits in the canvas height.
+This would be the final scheme of our grid, showing the first four centers of each row to get a good view on what is going on. From the center _(0,0)_ we can see that the blue arrow takes a distance of twice the length of the hexagon height that sums up to **2rsin60º**. However, depending how many hexagons can fit in a row, we have to add **rsin60º** if is odd or **2rsin60º** if is even. The rest is going to be the same taking into account this offset. We modify our function to draw many lines as the last hexagon fits in the canvas height.
 
 ```javascript
 function drawGrid(width, height) {
