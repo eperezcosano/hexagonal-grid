@@ -14,6 +14,7 @@ function drawGrid(width, height) {
     for (let x = r, j = 0; x + r * (1 + Math.cos(a)) < width; x += r * (1 + Math.cos(a)), y += (-1) ** j++ * r * Math.sin(a)) {
       drawHexagon(x, y);
     }
+    y += j % 2 * r * Math.sin(a);
   }
 }
 
